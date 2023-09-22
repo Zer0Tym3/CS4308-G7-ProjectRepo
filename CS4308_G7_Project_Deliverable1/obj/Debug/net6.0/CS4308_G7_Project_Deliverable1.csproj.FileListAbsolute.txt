@@ -1,0 +1,5 @@
+C:\Users\zchry\Desktop\KSU\KSU Fall 2023\CS4308 - CPL\ProjectRepo\CS4308-G7-ProjectRepo\CS4308_G7_Project_Deliverable1\obj\Debug\net6.0\CS4308_G7_Project_Deliverable1.csproj.AssemblyReference.cache
+C:\Users\zchry\Desktop\KSU\KSU Fall 2023\CS4308 - CPL\ProjectRepo\CS4308-G7-ProjectRepo\CS4308_G7_Project_Deliverable1\obj\Debug\net6.0\CS4308_G7_Project_Deliverable1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zchry\Desktop\KSU\KSU Fall 2023\CS4308 - CPL\ProjectRepo\CS4308-G7-ProjectRepo\CS4308_G7_Project_Deliverable1\obj\Debug\net6.0\CS4308_G7_Project_Deliverable1.AssemblyInfoInputs.cache
+C:\Users\zchry\Desktop\KSU\KSU Fall 2023\CS4308 - CPL\ProjectRepo\CS4308-G7-ProjectRepo\CS4308_G7_Project_Deliverable1\obj\Debug\net6.0\CS4308_G7_Project_Deliverable1.AssemblyInfo.cs
+C:\Users\zchry\Desktop\KSU\KSU Fall 2023\CS4308 - CPL\ProjectRepo\CS4308-G7-ProjectRepo\CS4308_G7_Project_Deliverable1\obj\Debug\net6.0\CS4308_G7_Project_Deliverable1.csproj.CoreCompileInputs.cache
