@@ -32,7 +32,6 @@ namespace CS4308_G7_Project_Deliverable1
                 new Token("double", 7),
                 new Token("char", 8),
                 new Token("num", 9),
-                new Token("is", 10)
                 //...
             
             } },
