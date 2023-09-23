@@ -18,6 +18,14 @@ namespace CS4308_G7_Project_Deliverable1
         }
         public string Self { get; }
         public int ID { get; }
+        #region Alt.
+        List<Token> keyL = new List<Token>();
+        List<Token> ideL = new List<Token>();
+        List<Token> opeL = new List<Token>();
+        List<Token> tokens = new List<Token>();
+        private List<List<Token>> tList = new List<List<Token>>();
+
+        #endregion
 
         private static readonly Dictionary<string, List<Token>> tokenDictionary = new Dictionary<string, List<Token>>
         {
