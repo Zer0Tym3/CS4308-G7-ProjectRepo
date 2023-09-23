@@ -1,3 +1,4 @@
+#Token Class
 tokenList = {
     "keywords": {
         'import': 0,
