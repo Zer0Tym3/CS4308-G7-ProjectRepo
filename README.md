@@ -7,11 +7,13 @@ CS4308-G7-Project_Deliverable1 == C# Code (Initial, Can Likely Be Scrapped)
 Sorry for the Poor Naming Conventions
 
 For Python Deliverable1:
+
 Token Class:
  - List of Keywords, with lists associated with each word, and their value.
 
 Scanner Class:
-What is Needs to Do:
+
+What it Needs to Do:
 
 1. Pull an SCL file in a CMD Line Prompt
 2. Determine if it can pull/use that file
@@ -28,4 +30,5 @@ What is Needs to Do:
 7. Export the token list/array to a JSON File.
 
 BNF/EBNF Report
+
 Report explaining the BNF/EBNF of the SCL. Source Code we are using to test.
