@@ -1,4 +1,4 @@
-# Token Class
+# Token Class, WIP
 tokenList = {
     "keywords": {
         'import': 0,
