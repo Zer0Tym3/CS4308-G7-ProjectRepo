@@ -177,7 +177,56 @@ if __name__ == "__main__":
     finalTokenList = []
     megaDict = {}
 
-    
+
+for Items in ItemList:
+    for TokenItem in Items:
+        if TokenItem in tokenList["keywords"]:
+            newToken = Token('keywords', tokenList["keywords"][TokenItem], TokenItem)
+        elif TokenItem in tokenList["identifiers"]:
+            newToken = Token('identifiers', tokenList["identifiers"][TokenItem], TokenItem)
+        elif TokenItem in tokenList["operators"]:
+            newToken = Token('operators', tokenList["operators"][TokenItem], TokenItem)
+        elif TokenItem in tokenList ["specialSymbols"]:
+            newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
+        elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
+            newToken = Token('literals', 600, TokenItem) 
+        elif isfloat (TokenIten):
+            newToken = Token('literals', 600, TokenItem) 
+        else:
+            newToken = Token('UNKNOWN', 1200, TokenItem) 
+            
+        finalTokenList.append(newToken)
+        print("New Token created: ", newToken.getData())
+
+    newToken - Token('EndOfStatement', 1000, 'EOS') 
+    finalTokenList.append (newToken)
+    print("New Token created: ", newToken.getData())
+
+
+
+
+    jsonFile = open ("OutputTokens.json", "w")
+
+    loopCounter = 0
+    for Token in finalTokenList:
+        tokenStr = "Token_" + loopCounter.__str__()
+        megaDict.update({tokenStr: {}})
+        loopCounter += 1
+
+    loopCounter = 0
+    for Token in finalTokenList:
+        tokenData = Token.getData()
+        lst = ['Type', tokenData[0], 'id', tokenData[1], 'value', tokenData[2]]
+        newList = Convert(lst)
+
+        tokenStr = "Token_" + loopCounter.__str__()
+
+        megaDict[tokenStr].update(newList)
+        loopCounter += 1
+
+    json_object = json.dumps(megaDict, indent = 4)
+    jsonFile.write(json_object)
+
 
 
 
