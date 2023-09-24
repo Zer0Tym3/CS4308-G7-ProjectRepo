@@ -6,11 +6,11 @@ import sys
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
 #Scanner Class Created For The Language Processing 
-class Scanner: 
-    def __init__(self,file_name):
-        self.file.name = file_name
-        self.token_list = []
-        pass
+# class Scanner: 
+#     def __init__(self,file_name):
+#         self.file.name = file_name
+#         self.token_list = []
+#         pass
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
 def filterAndLex(fileN):
@@ -19,6 +19,7 @@ def filterAndLex(fileN):
     except:
         print("Unable to open file, please try again.")
         exit(2)
+
     comment = False
     lines = []
     for line in file:
@@ -45,7 +46,61 @@ if tA == True:
     print(sList2)
 print(len(sList2))
 
+lineList = []
+for line in filterAndLex:
+    lineTokens = []
 
+if '^' in line:
+    splitLocation = line.find('^')
+    beforeStr = line[:splitLocation]
+    afterStr = line[:splitLocation]
+    secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
+    strStatement = line[splitLocation:secondSplitLocation + 1]
+    afterStr = line[secondSplitLocation + 1:]
+
+    beforeStatementTokens = beforeStr.split('')
+    for token in beforeStatementTokens:
+        lineTokens.append(token)
+
+        lineList.append(lineTokens)
+        continue
+
+
+    #Splitting statements tokens using ^
+    if '<' in line:
+         splitLocation = line.find('^')
+    beforeStr = line[:splitLocation]
+    afterStr = line[:splitLocation]
+    secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
+    strStatement = line[splitLocation:secondSplitLocation + 1]
+    afterStr = line[secondSplitLocation + 1:]
+
+    beforeStatementTokens = beforeStr.split('')
+    for token in beforeStatementTokens:
+        lineTokens.append(token)
+
+        lineList.append(lineTokens)
+        continue
+
+#Splitting Lines Into Tokens Using "  '
+lineTokens = line.split('')
+
+#Filtering out Block Comments
+commentStart = "/"
+commentEnd = '/'
+
+if commentStart in line:
+    Comment = True
+
+    if not Comment:
+        lineList.append(lineTokens)
+
+        if commentEnd in line:
+            Comment = False
+
+        #End of The Block Comment Filtering
+
+"""
 def open_file(self):
     try:
         self.file = open(self.file_name, "r")
@@ -96,7 +151,7 @@ if __name__ == "__main__":
     scanner.scan()
     scanner.print_tokens()
     scanner.export_to_json("output.json")
-
+"""
 
     
 
