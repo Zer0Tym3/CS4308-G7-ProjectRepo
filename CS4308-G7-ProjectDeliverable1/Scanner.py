@@ -6,31 +6,122 @@ import sys
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
 #Scanner Class Created For The Language Processing 
-# class Scanner: 
-#     def __init__(self,file_name):
-#         self.file.name = file_name
-#         self.token_list = []
-#         pass
+class Scanner: 
+    def __init__(self,file_name):
+        self.file.name = file_name
+        self.token_list = []
+        pass
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filterAndLex(fileN):
+def filterAndLex(File_name):
     try:
-        file = open(fileN, "r")
+        file = open(File_name, 'r')
     except:
-        print("Unable to open file, please try again.")
+        print("Unable to open file, please try again.", File_name)
         exit(2)
 
-    comment = False
-    lines = []
+
+    Comment = False
+    lineList = []
+
     for line in file:
         lineTokens = []
-    if '"' in line:
-        print("dasdasd")
+
+        if '"' in line:
+            splitLocation = line.find('"')
+            beforeStr = line[:splitLocation]
+            afterStr = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterStr[1:].find('"') + 1
+            strStatement = line[splitLocation:secondSplitLocation + 1]
+            afterStr = line[secondSplitLocation + 1:]
+
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
+
+            lineTokens.append(strStatement)
+
+            if afterStr != '\n':
+                afterStatementTokens = afterStr.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
+
+
+        if '^' in line:
+            splitLocation = line.find('^')
+            beforeStr = line[:splitLocation]
+            afterStr = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
+            strStatement = line[splitLocation:secondSplitLocation + 1]
+            afterStr = line[secondSplitLocation + 1:]
+
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
+
+            lineTokens.append(strStatement)
+
+            if afterStr != '\n':
+                afterStatementTokens = afterStr.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
+
+
+        if '<' in line:
+            splitLocation = line.find('<')
+            beforeStr = line[:splitLocation]
+            afterStr = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterStr[1:].find('<') + 1
+            strStatement = line[splitLocation:secondSplitLocation + 1]
+            afterStr = line[secondSplitLocation + 1:]
+
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
+
+            lineTokens.append(strStatement)
+
+            if afterStr != '\n':
+                afterStatementTokens = afterStr.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
+
+
+        lineTokens = line.split(' ')
+
+        commentStart = "/*"
+        commentEnd = "*/"
+
+        if commentStart in line:
+            Comment = True
+
+        if not Comment:
+            lineList.append(lineTokens)
+
+        if commentEnd in line:
+            Comment = False
+
+    loopCount = 0
+    for line in lineList:
+        lineList[loopCount] 
 
 
 
 tA = False
-text = 'display "Value of x: ", x'
+text = 'Import "scl.h"'
+"""
 start = text.index('"')
 end = text.index('"', start + 1)
 substring = '"' + text[start + 1:end] + '"'
@@ -44,124 +135,12 @@ except:
 print(sString1, ', ', substring)
 if tA == True:
     print(sList2)
-print(len(sList2))
-
-lineList = []
-for line in filterAndLex:
-    lineTokens = []
-
-if '^' in line:
-    splitLocation = line.find('^')
-    beforeStr = line[:splitLocation]
-    afterStr = line[:splitLocation]
-    secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
-    strStatement = line[splitLocation:secondSplitLocation + 1]
-    afterStr = line[secondSplitLocation + 1:]
-
-    beforeStatementTokens = beforeStr.split('')
-    for token in beforeStatementTokens:
-        lineTokens.append(token)
-
-        lineList.append(lineTokens)
-        continue
+print(len(sList2))"""
 
 
-    #Splitting statements tokens using ^
-    if '<' in line:
-         splitLocation = line.find('^')
-    beforeStr = line[:splitLocation]
-    afterStr = line[:splitLocation]
-    secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
-    strStatement = line[splitLocation:secondSplitLocation + 1]
-    afterStr = line[secondSplitLocation + 1:]
-
-    beforeStatementTokens = beforeStr.split('')
-    for token in beforeStatementTokens:
-        lineTokens.append(token)
-
-        lineList.append(lineTokens)
-        continue
-
-#Splitting Lines Into Tokens Using "  '
-lineTokens = line.split('')
-
-#Filtering out Block Comments
-commentStart = "/"
-commentEnd = '/'
-
-if commentStart in line:
-    Comment = True
-
-    if not Comment:
-        lineList.append(lineTokens)
-
-        if commentEnd in line:
-            Comment = False
-
-        #End of The Block Comment Filtering
-
-"""
-def open_file(self):
-    try:
-        self.file = open(self.file_name, "r")
-    except FileNotFoundError:
-        print("Unable to open file. Please Try Again.")
-        SystemExit(2)
-
-def is_comment(self, line):
-    #Checking To See If A Line Is A Comment (Specifically Stating with the HashTag#)
-    return line.strip().startswitch('#')
-
-def tokenized_line(self, line):
-    #Sets a Tokened line into key statements such as: Identifiers, operators, and or specialized characters.
-    tokens = line.split()
-    for token in tokens:
-        #Validates for if it is one of the previously stated keywords (We can add more keywords if needed)
-        if token in ["print", "if","else", "while"]:
-            self.token_list.append(("Keyword", token))
-        #Checks to seee if any identifiers exist.
-        elif token.isidentifier():
-            self.token_list.append(("Identifier", token))
-            #Check for operators and special characters
-        elif token in ["+", "-", "*", "/", "=", "==", ",", "."]:
-            self.token_list.append(("Operator/SpecialChar", token))
-
-    def scan(self):
-        self.open_file()
-        for line in self.file:
-            if not self.is_comment(line) and line.strip():
-                self.tokenize_line(line)
-        self.file.close()
-
-    def print_tokens(self):
-        for token in self.token_list:
-            print(token)
-
-    def export_to_json(self, output_file):
-        with open(output_file, 'w') as json_file:
-            json.dump(self.token_list, json_file)
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python scanner.py <file_name>")
-        sys.exit(1)
-
-    file_name = sys.argv[1]
-    scanner = Scanner(file_name)
-    scanner.scan()
-    scanner.print_tokens()
-    scanner.export_to_json("output.json")
-"""
-
-    
-
-
-
-# sString1 ~~ to Token
-# subString ~~ to Token
-#
-
-
-# Comment to test push on Git: Phillip
-# Comment Armando Ortiz
-# Comment Zach Morning 
+splitLocation = text.find('^')
+beforeStr = text[:splitLocation]
+afterStr = text[splitLocation:]
+secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
+strStatement = text[splitLocation:secondSplitLocation + 1]
+afterStr = text[secondSplitLocation + 1:]
