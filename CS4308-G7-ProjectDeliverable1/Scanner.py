@@ -18,7 +18,7 @@ def remove_items(test_list, item):
     return res    
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filterAndLex(File_name):
+def filter_file(File_name):
     try:
         file = open(File_name, 'r')
     except:
@@ -120,7 +120,7 @@ def filterAndLex(File_name):
 
     loopCount = 0
     for line in lineList:
-        lineList[loopCount] - remove_items(line, '')
+        lineList[loopCount] = remove_items(line, '')
         loopCount += 1
 
     loopCount = 0
@@ -172,37 +172,35 @@ def merge_dictionaries(dict1, dict2):
 if __name__ == "__main__":
     sysArgv = sys.argv
 
-    ItemList = filterAndLex(sysArgv[1])
+    ItemList = filter_file(sysArgv[1])
 
     finalTokenList = []
     megaDict = {}
 
 
-for Items in ItemList:
-    for TokenItem in Items:
-        if TokenItem in tokenList["keywords"]:
-            newToken = Token('keywords', tokenList["keywords"][TokenItem], TokenItem)
-        elif TokenItem in tokenList["identifiers"]:
-            newToken = Token('identifiers', tokenList["identifiers"][TokenItem], TokenItem)
-        elif TokenItem in tokenList["operators"]:
-            newToken = Token('operators', tokenList["operators"][TokenItem], TokenItem)
-        elif TokenItem in tokenList ["specialSymbols"]:
-            newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
-        elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
-            newToken = Token('literals', 600, TokenItem) 
-        elif isfloat (TokenItem):
-            newToken = Token('literals', 600, TokenItem) 
-        else:
-            newToken = Token('UNKNOWN', 1200, TokenItem) 
-            
-        finalTokenList.append(newToken)
+    for Items in ItemList:
+        for TokenItem in Items:
+            if TokenItem in tokenList["keywords"]:
+                newToken = Token('keywords', tokenList["keywords"][TokenItem], TokenItem)
+            elif TokenItem in tokenList["identifiers"]:
+                newToken = Token('identifiers', tokenList["identifiers"][TokenItem], TokenItem)
+            elif TokenItem in tokenList["operators"]:
+                newToken = Token('operators', tokenList["operators"][TokenItem], TokenItem)
+            elif TokenItem in tokenList ["specialSymbols"]:
+                newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
+            elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
+                newToken = Token('literals', 600, TokenItem) 
+            elif isfloat (TokenItem):
+                newToken = Token('literals', 600, TokenItem) 
+            else:
+                newToken = Token('UNKNOWN', 1200, TokenItem) 
+                
+            finalTokenList.append(newToken)
+            print("New Token created: ", newToken.getData())
+
+        newToken = Token('EndOfStatement', 1000, 'EOS') 
+        finalTokenList.append (newToken)
         print("New Token created: ", newToken.getData())
-
-    newToken - Token('EndOfStatement', 1000, 'EOS') 
-    finalTokenList.append (newToken)
-    print("New Token created: ", newToken.getData())
-
-
 
 
     jsonFile = open ("OutputTokens.json", "w")
