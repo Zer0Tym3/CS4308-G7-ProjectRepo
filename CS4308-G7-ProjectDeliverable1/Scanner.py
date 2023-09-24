@@ -16,13 +16,32 @@ def filterAndLex(fileN):
     lines = []
     for line in file:
         lineTokens = []
+    if '"' in line:
+        print("dasdasd")
 
 
-text = 'import "tests.scl"'
+
+tA = False
+text = 'display "Value of x: ", x'
 start = text.index('"')
 end = text.index('"', start + 1)
-substring = text[start + 1:end]
-print(substring)
+substring = '"' + text[start + 1:end] + '"'
+sString1 = text.split(' ')[0]
+endText = (text[end+1:])
+try:
+    sList2 = endText.split(' ')
+    tA = True
+except:
+    print("No Tokens after literal")
+print(sString1, ', ', substring)
+if tA == True:
+    print(sList2)
+print(len(sList2))
+
+# sString1 ~~ to Token
+# subString ~~ to Token
+#
+
 
 # Comment to test push on Git: Phillip
 # Comment Armando Ortiz
