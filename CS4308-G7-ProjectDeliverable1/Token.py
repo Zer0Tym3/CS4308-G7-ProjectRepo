@@ -1,4 +1,4 @@
-#Token Class
+# Token Class
 tokenList = {
     "keywords": {
         'import': 0,
@@ -75,10 +75,12 @@ tokenList = {
     }
 }
 
+
 class Token:
     def __init__(self, type, id, value):
         self.type = type
         self.id = id
         self.value = value
+
     def getData(self):
-        return [self.type,self.id,self.value]
+        return [self.type, self.id, self.value]
