@@ -1,400 +1,235 @@
 {
     "Token_0": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "description"
-    },
-    "Token_1": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_2": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "Program"
-    },
-    "Token_3": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": ":"
-    },
-    "Token_4": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "welcome.scl"
-    },
-    "Token_5": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_6": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "Author"
-    },
-    "Token_7": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": ":"
-    },
-    "Token_8": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "J"
-    },
-    "Token_9": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "M"
-    },
-    "Token_10": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "Garrido,"
-    },
-    "Token_11": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "November"
-    },
-    "Token_12": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "20,"
-    },
-    "Token_13": {
-        "Type": "literals",
-        "id": 600,
-        "value": "2019."
-    },
-    "Token_14": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_15": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "Description"
-    },
-    "Token_16": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": ":"
-    },
-    "Token_17": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "Display"
-    },
-    "Token_18": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "welcome"
-    },
-    "Token_19": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "message"
-    },
-    "Token_20": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "on"
-    },
-    "Token_21": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "the"
-    },
-    "Token_22": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "screen"
-    },
-    "Token_23": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_24": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "and"
-    },
-    "Token_25": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "the"
-    },
-    "Token_26": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "value"
-    },
-    "Token_27": {
-        "Type": "keywords",
-        "id": 13,
-        "value": "of"
-    },
-    "Token_28": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "variable"
-    },
-    "Token_29": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "x."
-    },
-    "Token_30": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_31": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "*/"
-    },
-    "Token_32": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_33": {
         "Type": "keywords",
         "id": 0,
         "value": "import"
     },
-    "Token_34": {
+    "Token_1": {
         "Type": "literals",
         "id": 600,
         "value": "\"scl.h\""
     },
-    "Token_35": {
+    "Token_2": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_36": {
+    "Token_3": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "implementations"
     },
-    "Token_37": {
+    "Token_4": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_38": {
+    "Token_5": {
         "Type": "keywords",
         "id": 2,
         "value": "function"
     },
-    "Token_39": {
+    "Token_6": {
         "Type": "keywords",
         "id": 3,
         "value": "main"
     },
-    "Token_40": {
+    "Token_7": {
         "Type": "keywords",
         "id": 4,
         "value": "return"
     },
-    "Token_41": {
+    "Token_8": {
         "Type": "keywords",
         "id": 5,
         "value": "type"
     },
-    "Token_42": {
+    "Token_9": {
         "Type": "keywords",
         "id": 6,
         "value": "integer"
     },
-    "Token_43": {
+    "Token_10": {
         "Type": "keywords",
         "id": 10,
         "value": "is"
     },
-    "Token_44": {
+    "Token_11": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_45": {
+    "Token_12": {
         "Type": "keywords",
         "id": 11,
         "value": "variables"
     },
-    "Token_46": {
+    "Token_13": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_47": {
+    "Token_14": {
         "Type": "keywords",
         "id": 12,
         "value": "define"
     },
-    "Token_48": {
+    "Token_15": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
     },
-    "Token_49": {
+    "Token_16": {
         "Type": "keywords",
         "id": 13,
         "value": "of"
     },
-    "Token_50": {
+    "Token_17": {
         "Type": "keywords",
         "id": 5,
         "value": "type"
     },
-    "Token_51": {
+    "Token_18": {
         "Type": "keywords",
         "id": 7,
         "value": "double"
     },
-    "Token_52": {
+    "Token_19": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_53": {
+    "Token_20": {
         "Type": "keywords",
         "id": 14,
         "value": "begin"
     },
-    "Token_54": {
+    "Token_21": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_55": {
+    "Token_22": {
         "Type": "keywords",
         "id": 15,
         "value": "display"
     },
-    "Token_56": {
+    "Token_23": {
         "Type": "literals",
         "id": 600,
         "value": "\"Welcome to the world of SCL\""
     },
-    "Token_57": {
+    "Token_24": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_58": {
+    "Token_25": {
         "Type": "keywords",
         "id": 16,
         "value": "set"
     },
-    "Token_59": {
+    "Token_26": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
     },
-    "Token_60": {
+    "Token_27": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "="
     },
-    "Token_61": {
+    "Token_28": {
         "Type": "literals",
         "id": 600,
         "value": "45.95"
     },
-    "Token_62": {
+    "Token_29": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "\t//"
     },
-    "Token_63": {
+    "Token_30": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "assigns"
     },
-    "Token_64": {
+    "Token_31": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "a"
     },
-    "Token_65": {
+    "Token_32": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "value"
     },
-    "Token_66": {
+    "Token_33": {
         "Type": "keywords",
         "id": 37,
         "value": "to"
     },
-    "Token_67": {
+    "Token_34": {
         "Type": "UNKNOWN",
         "id": 1200,
         "value": "variable"
     },
-    "Token_68": {
+    "Token_35": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
     },
-    "Token_69": {
+    "Token_36": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_70": {
+    "Token_37": {
         "Type": "keywords",
         "id": 15,
         "value": "display"
     },
-    "Token_71": {
+    "Token_38": {
         "Type": "literals",
         "id": 600,
         "value": "\"Value of x: \""
     },
-    "Token_72": {
+    "Token_39": {
         "Type": "specialSymbols",
         "id": 300,
         "value": ","
     },
-    "Token_73": {
+    "Token_40": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
     },
-    "Token_74": {
+    "Token_41": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_75": {
+    "Token_42": {
         "Type": "keywords",
         "id": 17,
         "value": "exit"
     },
-    "Token_76": {
+    "Token_43": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_77": {
+    "Token_44": {
         "Type": "keywords",
         "id": 18,
         "value": "endfun"
     },
-    "Token_78": {
+    "Token_45": {
         "Type": "keywords",
         "id": 3,
         "value": "main"
     },
-    "Token_79": {
+    "Token_46": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
