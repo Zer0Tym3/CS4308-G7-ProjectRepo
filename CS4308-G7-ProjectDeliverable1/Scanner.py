@@ -190,7 +190,7 @@ for Items in ItemList:
             newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
         elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
             newToken = Token('literals', 600, TokenItem) 
-        elif isfloat (TokenIten):
+        elif isfloat (TokenItem):
             newToken = Token('literals', 600, TokenItem) 
         else:
             newToken = Token('UNKNOWN', 1200, TokenItem) 
