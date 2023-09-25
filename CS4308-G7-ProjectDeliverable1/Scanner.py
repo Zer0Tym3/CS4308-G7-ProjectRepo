@@ -5,12 +5,6 @@ import sys
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
-#Scanner Class Created For The Language Processing 
-class Scanner: 
-    def __init__(self,file_name):
-        self.file.name = file_name
-        self.token_list = []
-        pass
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
