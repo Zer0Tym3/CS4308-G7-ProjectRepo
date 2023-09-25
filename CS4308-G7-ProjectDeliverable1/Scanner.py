@@ -46,52 +46,6 @@ def filter_file(File_name):
             lineList.append(lineTokens)
             continue
 
-        if '^' in line:
-            splitLocation = line.find('^')
-            beforeStr = line[:splitLocation]
-            afterString = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterString[1:].find('^') + 1
-            StringStatement = line[splitLocation:secondSplitLocation + 1]
-            afterString = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(StringStatement)
-
-            if afterString != '\n':
-                afterStatementTokens = afterString.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '<' in line:
-            splitLocation = line.find('<')
-            beforeStr = line[:splitLocation]
-            afterString = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterString[1:].find('<') + 1
-            StringStatement = line[splitLocation:secondSplitLocation + 1]
-            afterString = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(StringStatement)
-
-            if afterString != '\n':
-                afterStatementTokens = afterString.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
 
         lineTokens = line.split(' ')
 
@@ -149,14 +103,10 @@ def isfloat(num):
         return False
     
 def Convert(a):
-    it = iter(a)
-    res_dct = dict(zip(it, it))
-    return res_dct
+    return dict(zip(a[::2], a[1::2]))
 
 def merge_dictionaries(dict1, dict2):
-    merged_dict = dict1.copy()
-    merged_dict.update(dict2)
-    return merged_dict
+    return {**dict1, **dict2}
 
 if __name__ == "__main__":
     sysArgv = sys.argv
@@ -214,28 +164,6 @@ if __name__ == "__main__":
     json_object = json.dumps(megaDict, indent = 4)
     jsonFile.write(json_object)
 
-
-
-
-
-
-
-tA = False
-text = 'display "Value of x: ", x'
-start = text.index('"')
-end = text.index('"', start + 1)
-substring = '"' + text[start + 1:end] + '"'
-sString1 = text.split(' ')[0]
-endText = (text[end+1:])
-try:
-    sList2 = endText.split(' ')
-    tA = True
-except:
-    print("No Tokens after literal")
-print(sString1, ', ', substring)
-if tA == True:
-    print(sList2)
-print(len(sList2))
 
 
 
