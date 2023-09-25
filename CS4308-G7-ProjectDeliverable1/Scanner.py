@@ -35,19 +35,19 @@ def filter_file(File_name):
         if '"' in line:
             splitLocation = line.find('"')
             beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('"') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('"') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
 
             beforestatementTokens = beforeStr.split(' ')
             for token in beforestatementTokens:
                 lineTokens.append (token)
 
-            lineTokens.append(strStatement)
+            lineTokens.append(StringStatement)
 
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
                 for token in afterStatementTokens:
                     lineTokens.append (token)
 
@@ -59,19 +59,19 @@ def filter_file(File_name):
         if '^' in line:
             splitLocation = line.find('^')
             beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('^') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
 
             beforestatementTokens = beforeStr.split(' ')
             for token in beforestatementTokens:
                 lineTokens.append (token)
 
-            lineTokens.append(strStatement)
+            lineTokens.append(StringStatement)
 
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
                 for token in afterStatementTokens:
                     lineTokens.append (token)
 
@@ -83,16 +83,16 @@ def filter_file(File_name):
         if '<' in line:
             splitLocation = line.find('<')
             beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('<') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('<') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
 
             beforestatementTokens = beforeStr.split(' ')
             for token in beforestatementTokens:
                 lineTokens.append (token)
 
-            lineTokens.append(strStatement)
+            lineTokens.append(StringStatement)
 
             if afterStr != '\n':
                 afterStatementTokens = afterStr.split(' ')
@@ -256,4 +256,4 @@ if tA == True:
     print(sList2)
 print(len(sList2))
 
-#ARmando Ortiz
+#Armando Ortiz
