@@ -7,6 +7,10 @@ symbols = r'(["^<])'
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
+<<<<<<< Updated upstream
+=======
+symbols = r'([^<])'
+>>>>>>> Stashed changes
 
 def remove_items(test_list, item):
     return [i for i in test_list if i != item]
