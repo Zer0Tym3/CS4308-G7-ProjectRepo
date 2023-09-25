@@ -32,29 +32,29 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
+        for symbol in ['"', '^', '<']:
+            if symbol in line:
+                splitLocation = line.find(symbol)
+                beforeStr = line[:splitLocation]
+                afterStr = line[splitLocation:]
+                secondSplitLocation = splitLocation + afterStr[1:].find(symbol) + 1
+                strStatement = line[splitLocation:secondSplitLocation + 1]
+                afterStr = line[secondSplitLocation + 1:]
 
-        for symbols in ['"', '^', '<']:
-            if symbols in line:
-                split = line.index('"')
-                strB = line[:split]
-                strA = line[split:]
-                splitSecond = split + strA[1:].index('"') + 1
-                strStatement = line[split:splitSecond + 1]
-                strA = line[splitSecond + 1:]
-
-            beforeTokens = strB.split(' ')
-            for token in beforeTokens:
+                beforestatementTokens = beforeStr.split(' ')
+                for token in beforestatementTokens:
                     lineTokens.append (token)
 
-            lineTokens.append(strStatement)
-
-            if strA != '\n':
-                afterTokens = strA.split(' ')
-            for token in afterTokens:
-                lineTokens.append (token)
+                lineTokens.append(strStatement)
 
 
-            lineList.append(lineTokens)
+                if afterStr != '\n':
+                    afterStatementTokens = afterStr.split(' ')
+                    for token in afterStatementTokens:
+                        lineTokens.append (token)
+
+
+                lineList.append(lineTokens)
 
 
         lineTokens = line.split(' ')
