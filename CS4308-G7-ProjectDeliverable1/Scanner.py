@@ -5,20 +5,14 @@ import sys
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
-#Scanner Class Created For The Language Processing 
-class Scanner: 
-    def __init__(self,file_name):
-        self.file.name = file_name
-        self.token_list = []
-        pass
 
 def remove_items(test_list, item):
-    res = [i for i in test_list if i != item]
+    return [i for i in test_list if i != item]
 
-    return res    
+        
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filter_file(File_name):
+def filterAndLex(File_name):
     try:
         file = open(File_name, 'r')
     except:
@@ -172,7 +166,7 @@ def merge_dictionaries(dict1, dict2):
 if __name__ == "__main__":
     sysArgv = sys.argv
 
-    ItemList = filter_file(sysArgv[1])
+    ItemList = filterAndLex(sysArgv[1])
 
     finalTokenList = []
     megaDict = {}
@@ -231,7 +225,7 @@ if __name__ == "__main__":
 
 
 
-
+#test
 
 
 
