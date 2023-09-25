@@ -2,7 +2,9 @@ from Token import *
 import json
 import sys
 
+
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
+
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
@@ -24,22 +26,76 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
-        for symbol in ['"', '^', '<']:
-                    if symbol in line:
-                        splitLocation = line.find(symbol)
-                        beforeStr = line[:splitLocation]
-                        afterStr = line[splitLocation:]
-                        secondSplitLocation = splitLocation + afterStr[1:].find(symbol) + 1
-                        strStatement = line[splitLocation:secondSplitLocation + 1]
-                        afterStr = line[secondSplitLocation + 1:]
+        if '"' in line:
+            splitLocation = line.find('"')
+            beforeStr = line[:splitLocation]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('"') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
 
-                        beforestatementTokens = beforeStr.split(' ')
-                        lineTokens.extend(beforestatementTokens)
-                        lineTokens.append(strStatement)
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
 
-                        if afterStr != '\n':
-                            afterStatementTokens = afterStr.split(' ')
-                            lineTokens.extend(afterStatementTokens)
+            lineTokens.append(StringStatement)
+
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
+
+
+        if '^' in line:
+            splitLocation = line.find('^')
+            beforeStr = line[:splitLocation]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('^') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
+
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
+
+            lineTokens.append(StringStatement)
+
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
+
+
+        if '<' in line:
+            splitLocation = line.find('<')
+            beforeStr = line[:splitLocation]
+            afterString = line[splitLocation:]
+            secondSplitLocation = splitLocation + afterString[1:].find('<') + 1
+            StringStatement = line[splitLocation:secondSplitLocation + 1]
+            afterString = line[secondSplitLocation + 1:]
+
+            beforestatementTokens = beforeStr.split(' ')
+            for token in beforestatementTokens:
+                lineTokens.append (token)
+
+            lineTokens.append(StringStatement)
+
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
+                for token in afterStatementTokens:
+                    lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
+            continue
 
         lineTokens = line.split(' ')
 
@@ -170,8 +226,14 @@ if __name__ == "__main__":
 
 
 
+
+
+
+
+
+
 tA = False
-text = 'Import "welcome to scl"'
+text = 'Import "scl.h"'
 start = text.index('"')
 end = text.index('"', start + 1)
 substring = '"' + text[start + 1:end] + '"'
