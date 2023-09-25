@@ -8,24 +8,18 @@ import sys
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
-
-    return res    
-
+    return res
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filter_file(File_name):
+def filterAndLex(fName):
     try:
-        file = open(File_name, 'r')
+        file = open(fName, 'r')
     except:
-        print("Unable to open file, please try again.", File_name)
+        print("Unable to open file, please try again.", fName)
         exit(2)
-
-
     Comment = False
     lineList = []
-
     for line in file:
         lineTokens = []
-
         if '"' in line:
             tA = False
             start = line.index('"')
@@ -39,62 +33,11 @@ def filter_file(File_name):
             except:
                 if tA == True:
                     lineTokens.append(sList2)
-
             lineTokens.append((sString1))
             lineTokens.append((substring))
-
             lineList.append(lineTokens)
             continue
-
-        if '^' in line:
-            splitLocation = line.find('^')
-            beforeStr = line[:splitLocation]
-            afterString = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterString[1:].find('^') + 1
-            StringStatement = line[splitLocation:secondSplitLocation + 1]
-            afterString = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(StringStatement)
-
-            if afterString != '\n':
-                afterStatementTokens = afterString.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '<' in line:
-            splitLocation = line.find('<')
-            beforeStr = line[:splitLocation]
-            afterString = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterString[1:].find('<') + 1
-            StringStatement = line[splitLocation:secondSplitLocation + 1]
-            afterString = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(StringStatement)
-
-            if afterString != '\n':
-                afterStatementTokens = afterString.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
         lineTokens = line.split(' ')
-
         commentStart = "/*"
         commentEnd = "*/"
 
@@ -115,9 +58,9 @@ def filter_file(File_name):
     loopCount = 0
     for line in lineList:
         if '\n' in line[len(line) - 1]:
-            modifiedStr = line[len(line) - 1]
-            modifiedStr = modifiedStr[:-1]
-            line[len(line) - 1] = modifiedStr
+            mStr = line[len(line) - 1]
+            mStr = mStr[:-1]
+            line[len(line) - 1] = mStr
             lineList[loopCount] = line
         loopCount += 1
 
@@ -161,28 +104,28 @@ def merge_dictionaries(dict1, dict2):
 if __name__ == "__main__":
     sysArgv = sys.argv
 
-    ItemList = filter_file(sysArgv[1])
+    ItemList = filterAndLex(sysArgv[1])
 
     finalTokenList = []
-    megaDict = {}
+    mDict = {}
 
 
     for Items in ItemList:
-        for TokenItem in Items:
-            if TokenItem in tokenList["keywords"]:
-                newToken = Token('keywords', tokenList["keywords"][TokenItem], TokenItem)
-            elif TokenItem in tokenList["identifiers"]:
-                newToken = Token('identifiers', tokenList["identifiers"][TokenItem], TokenItem)
-            elif TokenItem in tokenList["operators"]:
-                newToken = Token('operators', tokenList["operators"][TokenItem], TokenItem)
-            elif TokenItem in tokenList ["specialSymbols"]:
-                newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
-            elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
-                newToken = Token('literals', 600, TokenItem) 
-            elif isfloat (TokenItem):
-                newToken = Token('literals', 600, TokenItem) 
+        for tItem in Items:
+            if tItem in tokenList["keywords"]:
+                newToken = Token('keywords', tokenList["keywords"][tItem], tItem)
+            elif tItem in tokenList["identifiers"]:
+                newToken = Token('identifiers', tokenList["identifiers"][tItem], tItem)
+            elif tItem in tokenList["operators"]:
+                newToken = Token('operators', tokenList["operators"][tItem], tItem)
+            elif tItem in tokenList ["specialSymbols"]:
+                newToken = Token('specialSymbols', tokenList["specialSymbols"][tItem], tItem)
+            elif tItem[0] == '"' and tItem[len (tItem) - 1] == '"':
+                newToken = Token('literals', 600, tItem) 
+            elif isfloat (tItem):
+                newToken = Token('literals', 600, tItem) 
             else:
-                newToken = Token('UNKNOWN', 1200, TokenItem) 
+                newToken = Token('UNKNOWN', 1200, tItem) 
                 
             finalTokenList.append(newToken)
             print("New Token created: ", newToken.getData())
@@ -197,7 +140,7 @@ if __name__ == "__main__":
     loopCounter = 0
     for Token in finalTokenList:
         tokenStr = "Token_" + loopCounter.__str__()
-        megaDict.update({tokenStr: {}})
+        mDict.update({tokenStr: {}})
         loopCounter += 1
 
     loopCounter = 0
@@ -208,36 +151,8 @@ if __name__ == "__main__":
 
         tokenStr = "Token_" + loopCounter.__str__()
 
-        megaDict[tokenStr].update(newList)
+        mDict[tokenStr].update(newList)
         loopCounter += 1
 
-    json_object = json.dumps(megaDict, indent = 4)
+    json_object = json.dumps(mDict, indent = 4)
     jsonFile.write(json_object)
-
-
-
-
-
-
-
-tA = False
-text = 'display "Value of x: ", x'
-start = text.index('"')
-end = text.index('"', start + 1)
-substring = '"' + text[start + 1:end] + '"'
-sString1 = text.split(' ')[0]
-endText = (text[end+1:])
-try:
-    sList2 = endText.split(' ')
-    tA = True
-except:
-    print("No Tokens after literal")
-print(sString1, ', ', substring)
-if tA == True:
-    print(sList2)
-print(len(sList2))
-
-
-
-
-
