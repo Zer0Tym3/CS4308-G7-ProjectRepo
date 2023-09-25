@@ -94,8 +94,8 @@ def filter_file(File_name):
 
             lineTokens.append(StringStatement)
 
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
                 for token in afterStatementTokens:
                     lineTokens.append (token)
 
@@ -179,21 +179,21 @@ if __name__ == "__main__":
 
 
     for Items in ItemList:
-        for TokenItem in Items:
-            if TokenItem in tokenList["keywords"]:
-                newToken = Token('keywords', tokenList["keywords"][TokenItem], TokenItem)
-            elif TokenItem in tokenList["identifiers"]:
-                newToken = Token('identifiers', tokenList["identifiers"][TokenItem], TokenItem)
-            elif TokenItem in tokenList["operators"]:
+        for TokenItm in Items:
+            if TokenItm in tokenList["keywords"]:
+                newToken = Token('keywords', tokenList["keywords"][TokenItm], TokenItm)
+            elif TokenItm in tokenList["identifiers"]:
+                newToken = Token('identifiers', tokenList["identifiers"][TokenItm], TokenItm)
+            elif TokenItm in tokenList["operators"]:
                 newToken = Token('operators', tokenList["operators"][TokenItem], TokenItem)
-            elif TokenItem in tokenList ["specialSymbols"]:
-                newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItem], TokenItem)
-            elif TokenItem[0] == '"' and TokenItem[len (TokenItem) - 1] == '"':
-                newToken = Token('literals', 600, TokenItem) 
-            elif isfloat (TokenItem):
-                newToken = Token('literals', 600, TokenItem) 
+            elif TokenItm in tokenList ["specialSymbols"]:
+                newToken = Token('specialSymbols', tokenList["specialSymbols"][TokenItm], TokenItm)
+            elif TokenItm[0] == '"' and TokenItm[len (TokenItm) - 1] == '"':
+                newToken = Token('literals', 600, TokenItm) 
+            elif isfloat (TokenItm):
+                newToken = Token('literals', 600, TokenItm) 
             else:
-                newToken = Token('UNKNOWN', 1200, TokenItem) 
+                newToken = Token('UNKNOWN', 1200, TokenItm) 
                 
             finalTokenList.append(newToken)
             print("New Token created: ", newToken.getData())
@@ -240,12 +240,12 @@ if __name__ == "__main__":
 
 
 tA = False
-text = 'Import "scl.h"'
-start = text.index('"')
-end = text.index('"', start + 1)
-substring = '"' + text[start + 1:end] + '"'
-sString1 = text.split(' ')[0]
-endText = (text[end+1:])
+txt = 'Import "scl.h"'
+start = txt.index('"')
+end = txt.index('"', start + 1)
+substring = '"' + txt[start + 1:end] + '"'
+sString1 = txt.split(' ')[0]
+endText = (txt[end+1:])
 try:
     sList2 = endText.split(' ')
     tA = True
