@@ -1,7 +1,9 @@
 from Token import *
 import json
 import sys
+import re
 
+symbols = r'(["^<])'
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
@@ -26,77 +28,11 @@ def filterAndLex(File_name):
     for line in file:
         lineTokens = []
 
-        if '"' in line:
-            splitLocation = line.find('"')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('"') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
+        tokens = re.split(symbols, line)
 
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '^' in line:
-            splitLocation = line.find('^')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '<' in line:
-            splitLocation = line.find('<')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('<') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
+        for token in tokens:
+            if token:
+                lineTokens.append(token)
 
         lineTokens = line.split(' ')
 
@@ -218,16 +154,6 @@ if __name__ == "__main__":
 
     json_object = json.dumps(megaDict, indent = 4)
     jsonFile.write(json_object)
-
-
-
-
-
-
-
-#test
-
-
 
 
 
