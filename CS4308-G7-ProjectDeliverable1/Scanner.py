@@ -24,15 +24,27 @@ def filterAndLex(fName):
             start = line.index('"')
             end = line.index('"', start + 1)
             substring = '"' + line[start + 1:end] + '"'
-            sString1 = line.split(' ')[0]
+            sString1 = (line[:start-1])
+            if sString1[0] == ' ':
+                print("ERROR, Adding Token with Starting Space")
+                sList1 = sString1.split(' ')
+                print(sList1.__len__())
+                correctS = (sList1[sList1.__len__()-1])
+                lineTokens.append(correctS)
+                if '\n' in correctS:
+                    print("new line Op in string")
+            else:
+                lineTokens.append((sString1))
             endText = (line[end + 1:])
             try:
                 sList2 = endText.split(' ')
                 tA = True
             except:
-                if tA == True:
-                    lineTokens.append(sList2)
-            lineTokens.append((sString1))
+                continue
+            if tA == True:
+                for s in sList2:
+                    lineTokens.append(s)
+
             lineTokens.append((substring))
             lineList.append(lineTokens)
             continue
