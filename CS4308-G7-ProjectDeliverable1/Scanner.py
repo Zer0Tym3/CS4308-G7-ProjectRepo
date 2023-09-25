@@ -1,16 +1,12 @@
 from Token import *
 import json
 import sys
+import re
 
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
-#Scanner Class Created For The Language Processing 
-class Scanner: 
-    def __init__(self,file_name):
-        self.file.name = file_name
-        self.token_list = []
-        pass
+symbols = r'(["^<])'
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
@@ -32,76 +28,11 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
-        if '"' in line:
-            splitLocation = line.find('"')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('"') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
+        tokens = re.split(symbols, line)
 
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '^' in line:
-            splitLocation = line.find('^')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('^') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
-
-
-        if '<' in line:
-            splitLocation = line.find('<')
-            beforeStr = line[:splitLocation]
-            afterStr = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterStr[1:].find('<') + 1
-            strStatement = line[splitLocation:secondSplitLocation + 1]
-            afterStr = line[secondSplitLocation + 1:]
-
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(strStatement)
-
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
-
-            lineList.append(lineTokens)
-            continue
+        for token in tokens:
+            if token:
+                lineTokens.append(token)
 
 
         lineTokens = line.split(' ')
