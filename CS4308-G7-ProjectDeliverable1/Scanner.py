@@ -256,3 +256,4 @@ if tA == True:
     print(sList2)
 print(len(sList2))
 
+#ARmando Ortiz
