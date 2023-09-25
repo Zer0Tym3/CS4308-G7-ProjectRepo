@@ -27,28 +27,24 @@ def filter_file(File_name):
         lineTokens = []
 
         if '"' in line:
-            splitLocation = line.find('"')
-            beforeStr = line[:splitLocation]
-            afterString = line[splitLocation:]
-            secondSplitLocation = splitLocation + afterString[1:].find('"') + 1
-            StringStatement = line[splitLocation:secondSplitLocation + 1]
-            afterString = line[secondSplitLocation + 1:]
+            tA = False
+            start = line.index('"')
+            end = line.index('"', start + 1)
+            substring = '"' + line[start + 1:end] + '"'
+            sString1 = line.split(' ')[0]
+            endText = (line[end + 1:])
+            try:
+                sList2 = endText.split(' ')
+                tA = True
+            except:
+                if tA == True:
+                    lineTokens.append(sList2)
 
-            beforestatementTokens = beforeStr.split(' ')
-            for token in beforestatementTokens:
-                lineTokens.append (token)
-
-            lineTokens.append(StringStatement)
-
-            if afterString != '\n':
-                afterStatementTokens = afterString.split(' ')
-                for token in afterStatementTokens:
-                    lineTokens.append (token)
-
+            lineTokens.append((sString1))
+            lineTokens.append((substring))
 
             lineList.append(lineTokens)
             continue
-
 
         if '^' in line:
             splitLocation = line.find('^')
@@ -224,16 +220,8 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
-
 tA = False
-text = 'Import "scl.h"'
+text = 'display "Value of x: ", x'
 start = text.index('"')
 end = text.index('"', start + 1)
 substring = '"' + text[start + 1:end] + '"'
@@ -248,4 +236,8 @@ print(sString1, ', ', substring)
 if tA == True:
     print(sList2)
 print(len(sList2))
+
+
+
+
 

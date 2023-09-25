@@ -110,91 +110,71 @@
         "value": "EOS"
     },
     "Token_22": {
-        "Type": "keywords",
-        "id": 15,
-        "value": "display"
-    },
-    "Token_23": {
         "Type": "literals",
         "id": 600,
         "value": "\"Welcome to the world of SCL\""
     },
-    "Token_24": {
+    "Token_23": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_25": {
+    "Token_24": {
         "Type": "keywords",
         "id": 16,
         "value": "set"
     },
-    "Token_26": {
+    "Token_25": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
     },
-    "Token_27": {
+    "Token_26": {
         "Type": "operators",
         "id": 208,
         "value": "="
     },
-    "Token_28": {
+    "Token_27": {
         "Type": "literals",
         "id": 600,
         "value": "45.95"
     },
-    "Token_29": {
+    "Token_28": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_30": {
-        "Type": "keywords",
-        "id": 15,
-        "value": "display"
-    },
-    "Token_31": {
+    "Token_29": {
         "Type": "literals",
         "id": 600,
         "value": "\"Value of x: \""
     },
-    "Token_32": {
-        "Type": "specialSymbols",
-        "id": 300,
-        "value": ","
-    },
-    "Token_33": {
-        "Type": "identifiers",
-        "id": 100,
-        "value": "x"
-    },
-    "Token_34": {
+    "Token_30": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_35": {
+    "Token_31": {
         "Type": "keywords",
         "id": 17,
         "value": "exit"
     },
-    "Token_36": {
+    "Token_32": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
     },
-    "Token_37": {
+    "Token_33": {
         "Type": "keywords",
         "id": 18,
         "value": "endfun"
     },
-    "Token_38": {
+    "Token_34": {
         "Type": "keywords",
         "id": 3,
         "value": "main"
     },
-    "Token_39": {
+    "Token_35": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"
