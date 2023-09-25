@@ -15,8 +15,8 @@
         "value": "EOS"
     },
     "Token_3": {
-        "Type": "UNKNOWN",
-        "id": 1200,
+        "Type": "keywords",
+        "id": 1,
         "value": "implementations"
     },
     "Token_4": {
@@ -135,8 +135,8 @@
         "value": "x"
     },
     "Token_27": {
-        "Type": "UNKNOWN",
-        "id": 1200,
+        "Type": "operators",
+        "id": 208,
         "value": "="
     },
     "Token_28": {
@@ -145,39 +145,39 @@
         "value": "45.95"
     },
     "Token_29": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "\t//"
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
     },
     "Token_30": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "assigns"
+        "Type": "keywords",
+        "id": 15,
+        "value": "display"
     },
     "Token_31": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "a"
+        "Type": "literals",
+        "id": 600,
+        "value": "\"Value of x: \""
     },
     "Token_32": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "value"
+        "Type": "specialSymbols",
+        "id": 300,
+        "value": ","
     },
     "Token_33": {
-        "Type": "keywords",
-        "id": 37,
-        "value": "to"
-    },
-    "Token_34": {
-        "Type": "UNKNOWN",
-        "id": 1200,
-        "value": "variable"
-    },
-    "Token_35": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
+    },
+    "Token_34": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_35": {
+        "Type": "keywords",
+        "id": 17,
+        "value": "exit"
     },
     "Token_36": {
         "Type": "EndOfStatement",
@@ -186,50 +186,15 @@
     },
     "Token_37": {
         "Type": "keywords",
-        "id": 15,
-        "value": "display"
-    },
-    "Token_38": {
-        "Type": "literals",
-        "id": 600,
-        "value": "\"Value of x: \""
-    },
-    "Token_39": {
-        "Type": "specialSymbols",
-        "id": 300,
-        "value": ","
-    },
-    "Token_40": {
-        "Type": "identifiers",
-        "id": 100,
-        "value": "x"
-    },
-    "Token_41": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_42": {
-        "Type": "keywords",
-        "id": 17,
-        "value": "exit"
-    },
-    "Token_43": {
-        "Type": "EndOfStatement",
-        "id": 1000,
-        "value": "EOS"
-    },
-    "Token_44": {
-        "Type": "keywords",
         "id": 18,
         "value": "endfun"
     },
-    "Token_45": {
+    "Token_38": {
         "Type": "keywords",
         "id": 3,
         "value": "main"
     },
-    "Token_46": {
+    "Token_39": {
         "Type": "EndOfStatement",
         "id": 1000,
         "value": "EOS"

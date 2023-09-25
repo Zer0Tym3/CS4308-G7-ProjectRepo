@@ -2,7 +2,7 @@
 tokenList = {
     "keywords": {
         'import': 0,
-        'implementation': 1,
+        'implementations': 1,
         'function': 2,
         'main': 3,
         'return': 4,
