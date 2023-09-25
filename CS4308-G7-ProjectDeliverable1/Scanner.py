@@ -2,12 +2,13 @@ from Token import *
 import json
 import sys
 
+
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
 
 def remove_items(test_list, item):
-    res = [i for i in test_list if i != item]
-    return res
+    return [i for i in test_list if i != item]    
+
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
 def filterAndLex(fName):
     try:
@@ -37,16 +38,14 @@ def filterAndLex(fName):
             lineList.append(lineTokens)
             continue
         lineTokens = line.split(' ')
-        commentStart = "/*"
-        commentEnd = "*/"
 
-        if commentStart in line:
+        if "/*" in line:
             Comment = True
 
         if not Comment:
             lineList.append(lineTokens)
 
-        if commentEnd in line:
+        if "*/" in line:
             Comment = False
 
     loopCount = 0
