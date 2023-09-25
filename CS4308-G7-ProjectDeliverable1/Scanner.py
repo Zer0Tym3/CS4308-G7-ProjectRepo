@@ -7,12 +7,10 @@ import sys
 
 
 def remove_items(test_list, item):
-    res = [i for i in test_list if i != item]
-
-    return res    
+    return [i for i in test_list if i != item]    
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filter_file(File_name):
+def filterAndLex(File_name):
     try:
         file = open(File_name, 'r')
     except:
@@ -49,16 +47,13 @@ def filter_file(File_name):
 
         lineTokens = line.split(' ')
 
-        commentStart = "/*"
-        commentEnd = "*/"
-
-        if commentStart in line:
+        if "/*" in line:
             Comment = True
 
         if not Comment:
             lineList.append(lineTokens)
 
-        if commentEnd in line:
+        if "*/" in line:
             Comment = False
 
     loopCount = 0
@@ -111,7 +106,7 @@ def merge_dictionaries(dict1, dict2):
 if __name__ == "__main__":
     sysArgv = sys.argv
 
-    ItemList = filter_file(sysArgv[1])
+    ItemList = filterAndLex(sysArgv[1])
 
     finalTokenList = []
     megaDict = {}
