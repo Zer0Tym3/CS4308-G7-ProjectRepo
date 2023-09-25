@@ -1,12 +1,16 @@
 from Token import *
 import json
 import sys
-import re
 
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
-symbols = r'("[^"]*")'
+#Scanner Class Created For The Language Processing 
+class Scanner: 
+    def __init__(self,file_name):
+        self.file.name = file_name
+        self.token_list = []
+        pass
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
@@ -28,11 +32,29 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
-        tokens = re.split(symbols, line)
 
-        for token in tokens:
-            if token:
-                lineTokens.append(token)
+        for symbols in ['"', '^', '<']:
+            if symbols in line:
+                split = line.index('"')
+                strB = line[:split]
+                strA = line[split:]
+                splitSecond = split + strA[1:].index('"') + 1
+                strStatement = line[split:splitSecond + 1]
+                strA = line[splitSecond + 1:]
+
+            beforeTokens = strB.split(' ')
+            for token in beforeTokens:
+                    lineTokens.append (token)
+
+            lineTokens.append(strStatement)
+
+            if strA != '\n':
+                afterTokens = strA.split(' ')
+            for token in afterTokens:
+                lineTokens.append (token)
+
+
+            lineList.append(lineTokens)
 
 
         lineTokens = line.split(' ')
