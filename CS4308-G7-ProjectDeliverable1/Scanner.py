@@ -88,8 +88,8 @@ def filter_file(File_name):
 
             lineTokens.append(StringStatement)
 
-            if afterStr != '\n':
-                afterStatementTokens = afterStr.split(' ')
+            if afterString != '\n':
+                afterStatementTokens = afterString.split(' ')
                 for token in afterStatementTokens:
                     lineTokens.append (token)
 
