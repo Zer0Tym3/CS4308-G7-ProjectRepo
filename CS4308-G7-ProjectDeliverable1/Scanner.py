@@ -1,16 +1,10 @@
 from Token import *
 import json
 import sys
+import re
 
-
+pattern = r'(["^<])'
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
-
-#Scanner Class Created For The Language Processing 
-class Scanner: 
-    def __init__(self,file_name):
-        self.file.name = file_name
-        self.token_list = []
-        pass
 
 def remove_items(test_list, item):
     res = [i for i in test_list if i != item]
@@ -32,29 +26,14 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
-        for symbol in ['"', '^', '<']:
-            if symbol in line:
-                splitLocation = line.find(symbol)
-                beforeStr = line[:splitLocation]
-                afterStr = line[splitLocation:]
-                secondSplitLocation = splitLocation + afterStr[1:].find(symbol) + 1
-                strStatement = line[splitLocation:secondSplitLocation + 1]
-                afterStr = line[secondSplitLocation + 1:]
-
-                beforestatementTokens = beforeStr.split(' ')
-                for token in beforestatementTokens:
-                    lineTokens.append (token)
-
-                lineTokens.append(strStatement)
 
 
-                if afterStr != '\n':
-                    afterStatementTokens = afterStr.split(' ')
-                    for token in afterStatementTokens:
-                        lineTokens.append (token)
+        tokens = re.findall(pattern, line)
 
+        for token in tokens:
+            if token:
+                lineTokens.append(token)
 
-                lineList.append(lineTokens)
 
 
         lineTokens = line.split(' ')
@@ -186,14 +165,8 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
 tA = False
-text = 'Import "scl.h"'
+text = 'Import "welcome to scl"'
 start = text.index('"')
 end = text.index('"', start + 1)
 substring = '"' + text[start + 1:end] + '"'
