@@ -2,7 +2,6 @@ from Token import *
 import json
 import sys
 
-
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
 
