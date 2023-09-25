@@ -1,9 +1,7 @@
 from Token import *
 import json
 import sys
-import re
 
-pattern = r'(["^<])'
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
 def remove_items(test_list, item):
@@ -26,15 +24,22 @@ def filter_file(File_name):
     for line in file:
         lineTokens = []
 
+        for symbol in ['"', '^', '<']:
+                    if symbol in line:
+                        splitLocation = line.find(symbol)
+                        beforeStr = line[:splitLocation]
+                        afterStr = line[splitLocation:]
+                        secondSplitLocation = splitLocation + afterStr[1:].find(symbol) + 1
+                        strStatement = line[splitLocation:secondSplitLocation + 1]
+                        afterStr = line[secondSplitLocation + 1:]
 
+                        beforestatementTokens = beforeStr.split(' ')
+                        lineTokens.extend(beforestatementTokens)
+                        lineTokens.append(strStatement)
 
-        tokens = re.findall(pattern, line)
-
-        for token in tokens:
-            if token:
-                lineTokens.append(token)
-
-
+                        if afterStr != '\n':
+                            afterStatementTokens = afterStr.split(' ')
+                            lineTokens.extend(afterStatementTokens)
 
         lineTokens = line.split(' ')
 
