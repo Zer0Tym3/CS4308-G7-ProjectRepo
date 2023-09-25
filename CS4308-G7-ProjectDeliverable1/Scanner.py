@@ -3,22 +3,18 @@ import json
 import sys
 import re
 
-symbols = r'(["^<])'
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 
-<<<<<<< Updated upstream
-=======
-symbols = r'([^<])'
->>>>>>> Stashed changes
+symbols = r'("[^"]*")'
 
 def remove_items(test_list, item):
-    return [i for i in test_list if i != item]
+    res = [i for i in test_list if i != item]
 
-        
+    return res    
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
-def filterAndLex(File_name):
+def filter_file(File_name):
     try:
         file = open(File_name, 'r')
     except:
@@ -37,6 +33,7 @@ def filterAndLex(File_name):
         for token in tokens:
             if token:
                 lineTokens.append(token)
+
 
         lineTokens = line.split(' ')
 
@@ -106,7 +103,7 @@ def merge_dictionaries(dict1, dict2):
 if __name__ == "__main__":
     sysArgv = sys.argv
 
-    ItemList = filterAndLex(sysArgv[1])
+    ItemList = filter_file(sysArgv[1])
 
     finalTokenList = []
     megaDict = {}
@@ -158,6 +155,16 @@ if __name__ == "__main__":
 
     json_object = json.dumps(megaDict, indent = 4)
     jsonFile.write(json_object)
+
+
+
+
+
+
+
+
+
+
 
 
 
