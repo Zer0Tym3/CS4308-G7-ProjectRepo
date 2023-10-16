@@ -3,7 +3,7 @@ import json
 import sys
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
-
+# Final Scanner Build
 
 def remove_items(test_list, item):
     return [i for i in test_list if i != item]    
