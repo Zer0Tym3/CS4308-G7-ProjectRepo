@@ -26,13 +26,9 @@ def filterAndLex(fName):
             substring = '"' + line[start + 1:end] + '"'
             sString1 = (line[:start-1])
             if sString1[0] == ' ':
-                print("ERROR, Adding Token with Starting Space")
                 sList1 = sString1.split(' ')
-                print(sList1.__len__())
                 correctS = (sList1[sList1.__len__()-1])
                 lineTokens.append(correctS)
-                if '\n' in correctS:
-                    print("new line Op in string")
             else:
                 lineTokens.append((sString1))
             endText = (line[end + 1:])
@@ -44,8 +40,9 @@ def filterAndLex(fName):
             if tA == True:
                 for s in sList2:
                     lineTokens.append(s)
-
             lineTokens.append((substring))
+            if '\n' in lineTokens:
+                lineTokens.remove('\n')
             lineList.append(lineTokens)
             continue
         lineTokens = line.split(' ')
@@ -79,7 +76,6 @@ def filterAndLex(fName):
             line = line[:line.index('//')]
             lineList[loopCount] = line
         loopCount += 1
-
 
     currentLineNum = 0
     while currentLineNum < len(lineList):
@@ -117,6 +113,8 @@ if __name__ == "__main__":
 
     for Items in ItemList:
         for tItem in Items:
+            if "\n" in tItem:
+                tItem = tItem[0]
             if tItem in tokenList["keywords"]:
                 newToken = Token('keywords', tokenList["keywords"][tItem], tItem)
             elif tItem in tokenList["identifiers"]:

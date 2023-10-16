@@ -9,6 +9,6 @@ class Parser:
         print("Lorem Ipsum")
     def identifierExists(self, identifier):
         print ("Lorem Ipsum")
-    def begin(self):
-        print("Lorem Ipsum")
+    def beginParse(sysArg):
+         pTokenList = filterAndLex(sysArg)
 
