@@ -1,0 +1,212 @@
+{
+    "Token_0": {
+        "Type": "keywords",
+        "id": 0,
+        "value": "import"
+    },
+    "Token_1": {
+        "Type": "UNKNOWN",
+        "id": 1200,
+        "value": "\n"
+    },
+    "Token_2": {
+        "Type": "literals",
+        "id": 600,
+        "value": "\"scl.h\""
+    },
+    "Token_3": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_4": {
+        "Type": "keywords",
+        "id": 1,
+        "value": "implementations"
+    },
+    "Token_5": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_6": {
+        "Type": "keywords",
+        "id": 2,
+        "value": "function"
+    },
+    "Token_7": {
+        "Type": "keywords",
+        "id": 3,
+        "value": "main"
+    },
+    "Token_8": {
+        "Type": "keywords",
+        "id": 4,
+        "value": "return"
+    },
+    "Token_9": {
+        "Type": "keywords",
+        "id": 5,
+        "value": "type"
+    },
+    "Token_10": {
+        "Type": "keywords",
+        "id": 6,
+        "value": "integer"
+    },
+    "Token_11": {
+        "Type": "keywords",
+        "id": 10,
+        "value": "is"
+    },
+    "Token_12": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_13": {
+        "Type": "keywords",
+        "id": 11,
+        "value": "variables"
+    },
+    "Token_14": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_15": {
+        "Type": "keywords",
+        "id": 12,
+        "value": "define"
+    },
+    "Token_16": {
+        "Type": "identifiers",
+        "id": 100,
+        "value": "x"
+    },
+    "Token_17": {
+        "Type": "keywords",
+        "id": 13,
+        "value": "of"
+    },
+    "Token_18": {
+        "Type": "keywords",
+        "id": 5,
+        "value": "type"
+    },
+    "Token_19": {
+        "Type": "keywords",
+        "id": 7,
+        "value": "double"
+    },
+    "Token_20": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_21": {
+        "Type": "keywords",
+        "id": 14,
+        "value": "begin"
+    },
+    "Token_22": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_23": {
+        "Type": "keywords",
+        "id": 15,
+        "value": "display"
+    },
+    "Token_24": {
+        "Type": "UNKNOWN",
+        "id": 1200,
+        "value": "\n"
+    },
+    "Token_25": {
+        "Type": "literals",
+        "id": 600,
+        "value": "\"Welcome to the world of SCL\""
+    },
+    "Token_26": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_27": {
+        "Type": "keywords",
+        "id": 16,
+        "value": "set"
+    },
+    "Token_28": {
+        "Type": "identifiers",
+        "id": 100,
+        "value": "x"
+    },
+    "Token_29": {
+        "Type": "operators",
+        "id": 208,
+        "value": "="
+    },
+    "Token_30": {
+        "Type": "literals",
+        "id": 600,
+        "value": "45.95"
+    },
+    "Token_31": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_32": {
+        "Type": "keywords",
+        "id": 15,
+        "value": "display"
+    },
+    "Token_33": {
+        "Type": "specialSymbols",
+        "id": 300,
+        "value": ","
+    },
+    "Token_34": {
+        "Type": "UNKNOWN",
+        "id": 1200,
+        "value": "x\n"
+    },
+    "Token_35": {
+        "Type": "literals",
+        "id": 600,
+        "value": "\"Value of x: \""
+    },
+    "Token_36": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_37": {
+        "Type": "keywords",
+        "id": 17,
+        "value": "exit"
+    },
+    "Token_38": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    },
+    "Token_39": {
+        "Type": "keywords",
+        "id": 18,
+        "value": "endfun"
+    },
+    "Token_40": {
+        "Type": "keywords",
+        "id": 3,
+        "value": "main"
+    },
+    "Token_41": {
+        "Type": "EndOfStatement",
+        "id": 1000,
+        "value": "EOS"
+    }
+}
