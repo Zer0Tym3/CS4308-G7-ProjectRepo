@@ -25,12 +25,14 @@ def filterAndLex(fName):
             end = line.index('"', start + 1)
             substring = '"' + line[start + 1:end] + '"'
             sString1 = (line[:start-1])
+
             if sString1[0] == ' ':
                 sList1 = sString1.split(' ')
                 correctS = (sList1[sList1.__len__()-1])
                 lineTokens.append(correctS)
             else:
                 lineTokens.append((sString1))
+            lineTokens.append((substring))
             endText = (line[end + 1:])
             try:
                 sList2 = endText.split(' ')
@@ -40,7 +42,7 @@ def filterAndLex(fName):
             if tA == True:
                 for s in sList2:
                     lineTokens.append(s)
-            lineTokens.append((substring))
+
             if '\n' in lineTokens:
                 lineTokens.remove('\n')
             lineList.append(lineTokens)

@@ -155,19 +155,19 @@
         "value": "display"
     },
     "Token_31": {
+        "Type": "literals",
+        "id": 600,
+        "value": "\"Value of x: \""
+    },
+    "Token_32": {
         "Type": "specialSymbols",
         "id": 300,
         "value": ","
     },
-    "Token_32": {
+    "Token_33": {
         "Type": "identifiers",
         "id": 100,
         "value": "x"
-    },
-    "Token_33": {
-        "Type": "literals",
-        "id": 600,
-        "value": "\"Value of x: \""
     },
     "Token_34": {
         "Type": "EndOfStatement",
