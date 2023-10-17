@@ -104,8 +104,13 @@ def Convert(a):
 def merge_dictionaries(dict1, dict2):
     return {**dict1, **dict2}
 
-if __name__ == "__main__":
+def GenerateTokenList(file):
+    from Token import Token
+    from Token import tokenList
+
     sysArgv = sys.argv
+
+    tokenListUsed = tokenList
 
     ItemList = filterAndLex(sysArgv[1])
 
@@ -118,13 +123,13 @@ if __name__ == "__main__":
             if "\n" in tItem:
                 tItem = tItem[0]
             if tItem in tokenList["keywords"]:
-                newToken = Token('keywords', tokenList["keywords"][tItem], tItem)
+                newToken = Token('keywords', tokenListUsed["keywords"][tItem], tItem)
             elif tItem in tokenList["identifiers"]:
-                newToken = Token('identifiers', tokenList["identifiers"][tItem], tItem)
+                newToken = Token('identifiers', tokenListUsed["identifiers"][tItem], tItem)
             elif tItem in tokenList["operators"]:
-                newToken = Token('operators', tokenList["operators"][tItem], tItem)
+                newToken = Token('operators', tokenListUsed["operators"][tItem], tItem)
             elif tItem in tokenList ["specialSymbols"]:
-                newToken = Token('specialSymbols', tokenList["specialSymbols"][tItem], tItem)
+                newToken = Token('specialSymbols', tokenListUsed["specialSymbols"][tItem], tItem)
             elif tItem[0] == '"' and tItem[len (tItem) - 1] == '"':
                 newToken = Token('literals', 600, tItem)
             elif isfloat (tItem):
@@ -161,3 +166,5 @@ if __name__ == "__main__":
 
     json_object = json.dumps(mDict, indent = 4)
     jsonFile.write(json_object)
+
+    return finalTokenList
