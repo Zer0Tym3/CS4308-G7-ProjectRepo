@@ -14,7 +14,6 @@ class TreeNode:
         self.lineCount = 0
         self.last_data = str()
 
-    # dont ask
     def UpdateCounts(self, lineCount):
         self.data = "Line: " + str(lineCount)
         lineCount += 1
@@ -58,7 +57,7 @@ def GetNextToken(countTk, tokenList):
     return tokenList[countTk]
 
 if __name__ == '__main__':
-    sysArgv = sys.argv  # scan file from sys argvs
+    sysArgv = sys.argv
 
     tokenList = GenerateTokenList(sysArgv[1])
 
@@ -66,7 +65,6 @@ if __name__ == '__main__':
     countIterate = -1
     for item in tokenList:
         root.insert(GetNextToken(countIterate, tokenList).value)
-        #print(GetNextToken(countIterate, tokenList).value)
         countIterate = countIterate+1
 
     root.UpdateCounts(0)
