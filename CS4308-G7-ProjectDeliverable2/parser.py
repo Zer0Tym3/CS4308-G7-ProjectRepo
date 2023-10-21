@@ -35,23 +35,17 @@ class TreeNode:
         return num
 
     def insert(self, data):
-        iterations = self.iterate(0)
-        if iterations > 0:
-            self.left.insert(data)
-        else:
-            if data == "EOS":
-                if self.left is not str():
-                    self.left.insert(self.count + 1)
-                else:
-                    self.left = TreeNode(self.count + 1)
+        if data == "EOS":
+            if not self.left:
+                self.left = TreeNode(self.count+1)
                 self.count += 1
-            elif self.right is not str():
-                self.right.insert(data)
-            elif self.right is str():
-                self.right = TreeNode(data)
-
-countTk = -1
-
+            else:
+                self.left.insert(data)
+        elif not self.right:
+            self.right = TreeNode(data)
+        else:
+            self.right.insert(data)
+        
 def GetNextToken(countTk, tokenList):
     countTk += 1
     return tokenList[countTk]
