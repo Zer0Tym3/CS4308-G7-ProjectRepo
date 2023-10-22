@@ -4,6 +4,9 @@ from Scanner import *
 # import json
 
 
+# Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
+# Final Parser Build for Deliverable 2
+
 class TreeNode:
     def __init__(self, data):  # Constructor for TreeNode Class, Stores Data, Left & Right Pointers, and its own count.
         self.data = data
