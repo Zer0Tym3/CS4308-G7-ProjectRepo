@@ -1,14 +1,16 @@
-from Token import *
 import json
 import sys
+
 
 # Group 7: Zach Morning, Phillip Ngo, David Nguyen, Armando Ortiz
 # Final Scanner Build
 
 def remove_items(test_list, item):
-    return [i for i in test_list if i != item]    
+    return [i for i in test_list if i != item]
+
 
 # filterAndLex attempted to open a file, lex and tokenize desired text, and filter out anything else.
+# noinspection PyBroadException
 def filterAndLex(fName):
     try:
         file = open(fName, 'r')
@@ -24,22 +26,23 @@ def filterAndLex(fName):
             start = line.index('"')
             end = line.index('"', start + 1)
             substring = '"' + line[start + 1:end] + '"'
-            sString1 = (line[:start-1])
+            sString1 = (line[:start - 1])
 
             if sString1[0] == ' ':
                 sList1 = sString1.split(' ')
-                correctS = (sList1[sList1.__len__()-1])
+                correctS = (sList1[sList1.__len__() - 1])
                 lineTokens.append(correctS)
             else:
-                lineTokens.append((sString1))
-            lineTokens.append((substring))
+                lineTokens.append(sString1)
+            lineTokens.append(substring)
             endText = (line[end + 1:])
             try:
                 sList2 = endText.split(' ')
-                tA = True
+                if tA is False:
+                    tA = True
             except:
                 continue
-            if tA == True:
+            if tA is True:
                 for s in sList2:
                     lineTokens.append(s)
 
@@ -64,7 +67,7 @@ def filterAndLex(fName):
         loopCount += 1
 
     loopCount = 0
-    for line in lineList:
+    for line in lineList:  # \n filter
         if '\n' in line[len(line) - 1]:
             mStr = line[len(line) - 1]
             mStr = mStr[:-1]
@@ -73,7 +76,7 @@ def filterAndLex(fName):
         loopCount += 1
 
     loopCount = 0
-    for line in lineList:
+    for line in lineList:  # Line Comment Filter
         if '//' in line:
             line = line[:line.index('//')]
             lineList[loopCount] = line
@@ -97,13 +100,17 @@ def isfloat(num):
         return True
     except ValueError:
         return False
-    
+
+
 def Convert(a):
     return dict(zip(a[::2], a[1::2]))
+
 
 def merge_dictionaries(dict1, dict2):
     return {**dict1, **dict2}
 
+
+# noinspection PyUnusedLocal
 def GenerateTokenList(file):
     from Token import Token
     from Token import tokenList
@@ -117,7 +124,6 @@ def GenerateTokenList(file):
     finalTokenList = []
     mDict = {}
 
-
     for Items in ItemList:
         for tItem in Items:
             if "\n" in tItem:
@@ -128,24 +134,23 @@ def GenerateTokenList(file):
                 newToken = Token('identifiers', tokenListUsed["identifiers"][tItem], tItem)
             elif tItem in tokenList["operators"]:
                 newToken = Token('operators', tokenListUsed["operators"][tItem], tItem)
-            elif tItem in tokenList ["specialSymbols"]:
+            elif tItem in tokenList["specialSymbols"]:
                 newToken = Token('specialSymbols', tokenListUsed["specialSymbols"][tItem], tItem)
-            elif tItem[0] == '"' and tItem[len (tItem) - 1] == '"':
+            elif tItem[0] == '"' and tItem[len(tItem) - 1] == '"':
                 newToken = Token('literals', 600, tItem)
-            elif isfloat (tItem):
+            elif isfloat(tItem):
                 newToken = Token('literals', 600, tItem)
             else:
                 newToken = Token('UNKNOWN', 1200, tItem)
-                
+
             finalTokenList.append(newToken)
             print("New Token created: ", newToken.getData())
 
-        newToken = Token('EndOfStatement', 1000, 'EOS') 
-        finalTokenList.append (newToken)
+        newToken = Token('EndOfStatement', 1000, 'EOS')
+        finalTokenList.append(newToken)
         print("New Token created: ", newToken.getData())
 
-
-    jsonFile = open ("OutputTokens.json", "w")
+    jsonFile = open("OutputTokens.json", "w")
 
     loopCounter = 0
     for Token in finalTokenList:
@@ -164,7 +169,7 @@ def GenerateTokenList(file):
         mDict[tokenStr].update(newList)
         loopCounter += 1
 
-    json_object = json.dumps(mDict, indent = 4)
+    json_object = json.dumps(mDict, indent=4)
     jsonFile.write(json_object)
 
     return finalTokenList

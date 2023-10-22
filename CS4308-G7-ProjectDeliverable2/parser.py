@@ -1,12 +1,11 @@
+# from itertools import islice
 from Scanner import *
-import json
-from itertools import islice
-from Scanner import *
-from Token import *
-import json
+# from Token import *
+# import json
+
 
 class TreeNode:
-    def __init__(self, data):
+    def __init__(self, data):  # Constructor for TreeNode Class, Stores Data, Left & Right Pointers, and its own count.
         self.data = data
         self.left = str()
         self.right = str()
@@ -14,32 +13,32 @@ class TreeNode:
         self.lineCount = 0
         self.last_data = str()
 
-    def UpdateCounts(self, lineCount):
-        self.data = "Line: " + str(lineCount)
+    def updateCounts(self, lineCount):  # Update Counts function correctly iterates the line counts for display.
+        self.data = "Line #: " + str(lineCount)
         lineCount += 1
         if self.left is not str():
-            self.left.UpdateCounts(lineCount)
+            self.left.updateCounts(lineCount)
 
-    def PrintTree(self):
+    def printTree(self):  # Self-explanatory, Prints the tree
         print(self.data)
         if self.right is not str():
-            self.right.PrintTree()
+            self.right.printTree()
         if self.left is not str():
-            self.left.PrintTree()
+            self.left.printTree()
 
-    def iterate(self, num):
+    def iterate(self, num):  # Iterates through the tokens for use in the insert function
         if self.count != 0:
             if self.left is not str():
                 self.left.iterate(num)
             num = num + 1
         return num
 
-    def insert(self, data):
+    def insert(self, data):  # Inserts a token from the list 
         iterations = self.iterate(0)
         if iterations > 0:
             self.left.insert(data)
         else:
-            if data == "EOS":
+            if data == "EOS":  # Filters out the EOS (EndOfStatement) Tokens
                 if self.left is not str():
                     self.left.insert(self.count + 1)
                 else:
@@ -50,22 +49,26 @@ class TreeNode:
             elif self.right is str():
                 self.right = TreeNode(data)
 
-countTk = -1
 
-def GetNextToken(countTk, tokenList):
-    countTk += 1
-    return tokenList[countTk]
+tokenCount = -1
+
+
+# noinspection PyShadowingNames
+def getNextToken(tokenCount, tokenList):
+    tokenCount += 1
+    return tokenList[tokenCount]
+
 
 if __name__ == '__main__':
     sysArgv = sys.argv
 
     tokenList = GenerateTokenList(sysArgv[1])
 
-    root = TreeNode(0)
+    rootNode = TreeNode(0)
     countIterate = -1
     for item in tokenList:
-        root.insert(GetNextToken(countIterate, tokenList).value)
-        countIterate = countIterate+1
+        rootNode.insert(getNextToken(countIterate, tokenList).value)
+        countIterate = countIterate + 1
 
-    root.UpdateCounts(0)
-    root.PrintTree()
+    rootNode.updateCounts(0)
+    rootNode.printTree()
